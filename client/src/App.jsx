@@ -1,8 +1,15 @@
+
+import { BrowserRouter } from "react-router-dom";
+import Router from "./routes";
+import { AuthProvider } from "./store/auth.jsx";
+
 function App() {
   return (
-   <div>
-    123
-   </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
