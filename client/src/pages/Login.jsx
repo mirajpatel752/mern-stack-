@@ -35,16 +35,12 @@ export const Login = () => {
         body: JSON.stringify(user),
       });
 
-      console.log("login form", response);
 
       const res_data = await response.json();
 
-      console.log(res_data,"res")
 
       if (response.ok) {
-        alert("Login Successful");
         storeTokenInLS(res_data.token);
-
         setUser({ email: "", password: "" });
         toast.success("Login successful");
         navigate("/");
@@ -60,64 +56,54 @@ export const Login = () => {
   };
 
   return (
-    <>
-      <section>
-        <main>
-          <div className="section-registration">
-            <div className="container grid grid-two-cols">
-              <div className="registration-image">
-                <img
-                  src="/images/login.png"
-                  alt=" let's fill the login form "
-                  width="500"
-                  height="500"
-                />
-              </div>
-
-              {/* let tackle registration form  */}
-              <div className="registration-form">
-                <h1 className="main-heading mb-3">login form</h1>
-                <br />
-
-                <form onSubmit={handleSubmit}>
-                  <div>
-                    <label htmlFor="email">email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="enter your email"
-                      id="email"
-                      required
-                      autoComplete="off"
-                      value={user.email}
-                      onChange={handleInput}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="password">password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="password"
-                      id="password"
-                      required
-                      autoComplete="off"
-                      value={user.password}
-                      onChange={handleInput}
-                    />
-                  </div>
-
-                  <br />
-                  <button type="submit" className="btn btn-submit">
-                    Register Now
-                  </button>
-                </form>
-              </div>
+    <section className="min-h-screen bg-gray-100 flex justify-center items-center">
+      <main>
+          <div className="container ">
+            <div className="bg-white p-8 rounded shadow-md">
+              <h1 className="text-2xl mb-3">Login Form</h1>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label htmlFor="email" className="block text-gray-600">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    id="email"
+                    required
+                    autoComplete="off"
+                    value={user.email}
+                    onChange={handleInput}
+                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="password" className="block text-gray-600">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    id="password"
+                    required
+                    autoComplete="off"
+                    value={user.password}
+                    onChange={handleInput}
+                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                >
+                  Login
+                </button>
+              </form>
             </div>
           </div>
-        </main>
-      </section>
-    </>
+      </main>
+    </section>
   );
 };

@@ -1,8 +1,8 @@
 export const Home = () => {
   return (
     <>
-      <main className="container">
-        <section className="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+      <main className="container mx-auto">
+        <section className="px-4 sm:px-6 lg:px-8">
           <div className="container grid grid-two-cols">
             <div className="hero-content">
               <p>We are the World Best IT Company</p>
@@ -39,8 +39,8 @@ export const Home = () => {
       {/* 2nd section  */}
 
       {/* 3rd section  */}
-      <section className="section-hero">
-        <div className="container grid grid-two-cols">
+      <section className="container mx-auto">
+        <div className=" grid grid-two-cols">
           {/* hero images  */}
           <div className="hero-image">
             <img
