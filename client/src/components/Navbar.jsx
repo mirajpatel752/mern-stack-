@@ -3,43 +3,60 @@ import { useAuth } from "../store/auth";
 
 export const Navbar = () => {
   const { isLoggedIn } = useAuth();
+  
   return (
-    <>
-      <div className="container mx-auto flex justify-between">
-        <div className="logo-brand">
-          <NavLink to="/">BM</NavLink>
+    <header className="bg-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="logo-brand text-2xl font-bold">
+          <NavLink to="/" className="text-gray-800">
+            BM
+          </NavLink>
         </div>
         <nav>
-          <ul className="flex gap-8 columns-3">
+          <ul className="flex space-x-6">
             <li>
-              <NavLink to="/"> Home </NavLink>
+              <NavLink to="/" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about"> About </NavLink>
+              <NavLink to="/about" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/service"> Services </NavLink>
+              <NavLink to="/service" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                Services
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact"> Contact </NavLink>
+              <NavLink to="/contact" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                Contact
+              </NavLink>
             </li>
             {isLoggedIn ? (
               <li>
-                <NavLink to="/logout">Logout</NavLink>
+                <NavLink to="/logout" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                  Logout
+                </NavLink>
               </li>
             ) : (
               <>
                 <li>
-                  <NavLink to="/register"> Register </NavLink>
+                  <NavLink to="/register" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                    Register
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/login"> Login </NavLink>
+                  <NavLink to="/login" className="text-gray-700 hover:text-gray-900" activeClassName="text-gray-900 font-semibold">
+                    Login
+                  </NavLink>
                 </li>
               </>
             )}
           </ul>
         </nav>
       </div>
-    </>
+    </header>
   );
 };
